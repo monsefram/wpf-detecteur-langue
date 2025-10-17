@@ -1,0 +1,45 @@
+﻿<Window x:Class="tpfred2.Views.TokenStatusWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Statut du jeton" Height="340" Width="420" WindowStartupLocation="CenterOwner">
+    <Grid Margin="16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Date :" Grid.Row="0" Grid.Column="0"/>
+        <TextBlock Text="{Binding Date}" Grid.Row="0" Grid.Column="1" Margin="8,0,0,0"/>
+
+        <TextBlock Text="Requêtes aujourd'hui :" Grid.Row="1" Grid.Column="0"/>
+        <TextBlock Text="{Binding RequestsToday}" Grid.Row="1" Grid.Column="1" Margin="8,0,0,0"/>
+
+        <TextBlock Text="Octets aujourd'hui :" Grid.Row="2" Grid.Column="0"/>
+        <TextBlock Text="{Binding BytesToday}" Grid.Row="2" Grid.Column="1" Margin="8,0,0,0"/>
+
+        <TextBlock Text="Plan :" Grid.Row="3" Grid.Column="0"/>
+        <TextBlock Text="{Binding Plan}" Grid.Row="3" Grid.Column="1" Margin="8,0,0,0"/>
+
+        <TextBlock Text="Expiration du plan :" Grid.Row="4" Grid.Column="0"/>
+        <TextBlock Text="{Binding PlanExpires}" Grid.Row="4" Grid.Column="1" Margin="8,0,0,0"/>
+
+        <TextBlock Text="Limite requêtes quotidienne :" Grid.Row="5" Grid.Column="0"/>
+        <TextBlock Text="{Binding DailyReqLimit}" Grid.Row="5" Grid.Column="1" Margin="8,0,0,0"/>
+
+        <TextBlock Text="Limite octets quotidienne :" Grid.Row="6" Grid.Column="0"/>
+        <TextBlock Text="{Binding DailyBytesLimit}" Grid.Row="6" Grid.Column="1" Margin="8,0,0,0"/>
+
+        <TextBlock Text="Statut :" Grid.Row="7" Grid.Column="0"/>
+        <TextBlock Text="{Binding Status}" Grid.Row="7" Grid.Column="1" Margin="8,0,0,0"/>
+    </Grid>
+</Window>

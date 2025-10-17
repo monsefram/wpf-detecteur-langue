@@ -1,0 +1,60 @@
+﻿<Window x:Class="tpfred2.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Détecteur de langue" Height="520" Width="880"
+        WindowStartupLocation="CenterScreen">
+    <DockPanel>
+        <!-- Menu -->
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Configuration" Command="{Binding ShowConfigCommand}" />
+            <MenuItem Header="Statut jeton" Command="{Binding ShowStatusCommand}" />
+        </Menu>
+
+        <!-- Corps -->
+        <Grid Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Colonne gauche : saisie -->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Entrez le texte pour lequel vous voulez détecter la langue :" 
+                           Margin="0,0,0,8"/>
+                <TextBox Grid.Row="1"
+                         Text="{Binding InputText, UpdateSourceTrigger=PropertyChanged}"
+                         AcceptsReturn="True"
+                         AcceptsTab="True"
+                         VerticalScrollBarVisibility="Auto"/>
+                <Button Grid.Row="2" Content="Détecter" Height="42" Margin="0,12,0,0"
+                        Command="{Binding DetectCommand}"/>
+            </Grid>
+
+            <!-- Colonne droite : résultats -->
+            <StackPanel Grid.Column="1" Margin="30,0,0,0">
+                <TextBlock Text="Résultat de la détection :" FontWeight="Bold" Margin="0,0,0,6"/>
+                <ComboBox ItemsSource="{Binding Detections}"
+                          SelectedItem="{Binding SelectedDetection}"
+                          DisplayMemberPath="LongName"
+                          Height="28"/>
+
+                <StackPanel Margin="0,20,0,0">
+                    <TextBlock Text="Langue :" FontWeight="SemiBold"/>
+                    <TextBlock Text="{Binding SelectedLanguage}" Margin="8,0,0,10"/>
+
+                    <TextBlock Text="Confiance :" FontWeight="SemiBold"/>
+                    <TextBlock Text="{Binding SelectedConfidence}" Margin="8,0,0,10"/>
+
+                    <TextBlock Text="Est fiable :" FontWeight="SemiBold"/>
+                    <TextBlock Text="{Binding SelectedReliable}" Margin="8,0,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</Window>
